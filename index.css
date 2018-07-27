@@ -1,0 +1,38 @@
+.calc    {
+    position: relative;
+    height: 500px;
+    width: 400px;
+    top: 80px;
+    left: 10%;
+    border: 1px solid black;
+    border-block-end-color: black
+}
+
+.number-pad {
+    position: absolute;
+    padding: 0 10px;
+    height: 70%;
+    width: 95%;
+    border: 1px solid blue;
+    border-block-end-color: black;
+    bottom: 0;
+}
+
+.button {
+    height: 65px;
+    width: 90px;
+}
+
+.display-answer{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    margin-top: 15%
+}
+
+.display-operation{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    
+}

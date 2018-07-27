@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./index.css">
+    </head>
+    <body>
+        <div class="calc">
+            <textarea class="display-operation" id="operation"></textarea>
+            <textarea class="display-answer" id="answer"></textarea>
+            <div class="number-pad">
+                <table>
+                    <tr>
+                        <td>
+                            <button class="button" id='clear' value='c' onclick="readOperators(this.value)">C</button>
+                        </td>
+                        <td>
+                            <button class="button" id='clearAll' value='ca' onclick="readOperators(this.value)">CA</button>
+                        </td>
+                          <td>
+                            <button class="button" id='minus' value='-' onclick="readOperators(this.value)">-</button>
+                        </td>
+                        <td>
+                            <button class="button" id='plus' value='+' onclick="readOperators(this.value)">+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button  class="button" id='1' value='1' onclick="readOperands(this.value)">1</button>
+                        </td>
+                        <td>
+                            <button class="button" id='2' value='2' onclick="readOperands(this.value)">2</button>
+                        </td>
+                        <td>
+                            <button class="button" id='3' value='3' onclick="readOperands(this.value)">3</button>
+                        </td>
+                        <td>
+                            <button class="button" id='mod' value='%' onclick="readOperators(this.value)">%</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="button" id='4' value='4' onclick="readOperands(this.value)">4</button>
+                        </td>
+                        <td>
+                            <button class="button" id='5' value='5' onclick="readOperands(this.value)">5</button>
+                        </td>
+                        <td>
+                            <button class="button" id='6' value='6' onclick="readOperands(this.value)">6</button>
+                        </td>
+                        <td>
+                            <button class="button" id='div' value='/' onclick="readOperators(this.value)">/</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="button" id='7' value='7' onclick="readOperands(this.value)">7</button>
+                        </td>
+                        <td>
+                            <button class="button" id='8' value='8' onclick="readOperands(this.value)">8</button>
+                        </td>
+                        <td>
+                            <button class="button" id='9' value='9' onclick="readOperands(this.value)">9</button>
+                        </td>
+                        <td>
+                            <button class="button" id='mul' value='*' onclick="readOperators(this.value)">*</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <button class="button" id='decimal'>.</button>
+                        </td>
+                        <td>
+                            <button class="button" id='0' value='0' onclick="readOperands(this.value)">0</button>
+                        </td>
+                        <td>
+                            <button class="button" id='sign'>+,-</button>
+                        </td>
+                        <td>
+                            <button class="button" id='equal' value='=' onclick="readOperators(this.value)">=</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script src='./calc.js'></script>
+    </body>
+</html>
