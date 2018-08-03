@@ -1,14 +1,15 @@
-const ADD = 'ADD'
-const SUB = 'SUB'
-const MUL = 'MUL'
-const DIV = 'DIV'
-const EQUAL = 'EQUAL'
-const READ_OP1 = 'READ_OP1'
-const READ_OP2 = 'READ_OP2'
-const READ_OPERATOR = 'READ_OPERATOR'
-const CLEAR = 'CLEAR'
-const CLEARALL = 'CLEARALL'
-
+//action constants
+ const ADD = 'ADD'
+ const SUB = 'SUB'
+ const MUL = 'MUL'
+ const DIV = 'DIV'
+ const EQUAL = 'EQUAL'
+ const READ_OP1 = 'READ_OP1'
+ const READ_OP2 = 'READ_OP2'
+ const READ_OPERATOR = 'READ_OPERATOR'
+ const CLEAR = 'CLEAR'
+ const CLEARALL = 'CLEARALL'
+ 
 //reducer
 function calcReducer(state,action){
     if(typeof state === 'undefined'){
@@ -63,8 +64,6 @@ function calcReducer(state,action){
             return nextState;
             break
         case EQUAL :
-            nextState.result = action.result
-            nextState.operator1 = action.result
             nextState.operator2 = ''
             nextState.operator = ''
             return nextState;
@@ -119,23 +118,18 @@ function readOperators(operator){
         let op2 = Number(state.operator2)
         let stateOperator = state.operator
         console.log('operator',operator)
-        let result = 0;
         switch(stateOperator){
             case '+':
-                result=op1+op2
-                store.dispatch({type: ADD,result})
+                store.dispatch(addOperator(op1,op2));
                 break;
             case '-':
-                result=op1-op2
-                store.dispatch({type: SUB,result})
+                store.dispatch(subOperator(op1,op2));
                 break;
             case '*':
-                result=op1*op2
-                store.dispatch({type: MUL,result})
+                store.dispatch(mulOperator(op1,op2));
                 break;
             case '/':
-                result=op1/op2
-                store.dispatch({type: DIV,result})
+                store.dispatch(divOperator(op1,op2));
                 break;
             default: 
                 console.log('Something went wrong')
@@ -143,19 +137,70 @@ function readOperators(operator){
     }
     switch(operator){
         case '=':
-                store.dispatch({type: EQUAL})
+                store.dispatch(equalOperator())
                 break;
         case 'c':
-                store.dispatch({type: CLEAR})
+                store.dispatch(clearOperator())
                 break;
         case 'ca':
-                store.dispatch({type: CLEARALL})
+                store.dispatch(clearAllOperator())
                 break;
         default : 
-                store.dispatch({type : 'READ_OPERATOR',operator}) 
+                store.dispatch(readOperator(operator)) 
                 break
     }
 }
 
+function addOperator(op1,op2){
+    return{
+        type: ADD,
+        result: op1+op2
+    }
+}
+
+function subOperator(op1,op2){
+    return{
+        type: SUB,
+        result: op1-op2
+    }
+}
+
+function mulOperator(op1,op2){
+    return{
+        type: MUL,
+        result: op1*op2
+    }
+}
+
+function divOperator(op1,op2){
+    return{
+        type: DIV,
+        result: op1/op2
+    }
+}
+function equalOperator(op1,op2){
+    return{
+        type: EQUAL
+    }
+}
+function clearOperator(op1,op2){
+    return{
+        type: CLEAR,
+        result: op1/op2
+    }
+}
+function clearAllOperator(op1,op2){
+    return{
+        type: CLEARALL,
+        result: op1/op2
+    }
+}
+
+function readOperator(operator){
+    return{
+        type : 'READ_OPERATOR',
+        operator
+    }
+}
 
 
